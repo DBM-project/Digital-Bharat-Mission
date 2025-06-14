@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Bharat Mission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #ffa500;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 14px;
+      color: #ffc107;
+      margin: 5px 0 0;
+      letter-spacing: 1px;
+    }
+
+    .timers {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 30px auto 40px;
+      padding: 0 20px;
+    }
+
+    .timer {
+      background-color: #1a1a1a;
+      border: 2px solid #ffa500;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      max-width: 90%;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255,165,0,0.3);
+    }
+
+    .timer-label {
+      color: #ffcc00;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .timer-value {
+      font-size: 24px;
+      color: #ffa500;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .timers {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 0 20px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .event {
+      background-color: #1a1a1a;
+      border: 2px solid #ffa500;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(255,165,0,0.2);
+    }
+
+    .event:first-child {
+      border-color: #00cc66;
+    }
+
+    .event h2 {
+      color: #ffcc00;
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .event p {
+      margin: 0;
+      font-size: 14px;
+      color: #f5f5f5;
+    }
+
+    .btn {
+      background-color: #1a1a1a;
+      color: #ffcc00;
+      border: 1px solid #444;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #2a2a2a;
+      border-color: #ffa500;
+      color: #ffa500;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 30px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Digital Bharat Mission</h1>
+  <p>The future of the economy starts here</p>
+</header>
+
+<div class="timers">
+  <div class="timer">
+    <div class="timer-label">Until 2027</div>
+    <div class="timer-value" id="timer2027">--</div>
+  </div>
+  <div class="timer">
+    <div class="timer-label">Until 2047</div>
+    <div class="timer-value" id="timer2047">--</div>
+  </div>
+</div>
+
+<div class="timeline">
+  <div class="event"><h2>2025</h2><p>Launch of DBM. Beginning of a new economic era.</p></div>
+  <div class="event"><h2>2027</h2><p>Capital moved to blockchain. DBM ID and crypto ATMs deployed.</p></div>
+  <div class="event"><h2>2029</h2><p>Blockchain-based voting. Fraud eliminated.</p></div>
+  <div class="event"><h2>2031</h2><p>Simplified taxation through smart contracts.</p></div>
+  <div class="event"><h2>2035</h2><p>Integration with BRICS+. DBM recognized as a settlement unit.</p></div>
+  <div class="event"><h2>2037</h2><p>100% public procurement on Stellar. Full budget transparency.</p></div>
+  <div class="event"><h2>2040</h2><p>Paperless economy. Digital citizenship.</p></div>
+  <div class="event"><h2>2043</h2><p>India as global blockchain advisor. Exporting the model.</p></div>
+  <div class="event"><h2>2047</h2><p>DBM recognized by G20. New economic system activated.</p></div>
+</div>
+
+<div class="buttons">
+  <a href="https://t.me/DBM_Stellar" target="_blank" class="btn">Channel</a>
+  <a href="https://t.me/+5Mha7uGtKrA3Y2Ey" target="_blank" class="btn">Chat</a>
+  <a href="https://lobstr.co/trade/DBM:GC2VAFTSYDGVVSGKDSMX2VCHFHJFKOQHZGNUQ7KMLAF7I6GZ75SJLBJH" target="_blank" class="btn">Trade</a>
+</div>
+
+<script>
+function updateTimer(id, targetDate) {
+  const el = document.getElementById(id);
+  setInterval(() => {
+    const now = new Date().getTime();
+    const dist = new Date(targetDate).getTime() - now;
+    if (dist <= 0) {
+      el.textContent = "0";
+      return;
+    }
+    const seconds = Math.floor((dist / 1000) % 60);
+    const minutes = Math.floor((dist / 1000 / 60) % 60);
+    const hours = Math.floor((dist / (1000 * 60 * 60)) % 24);
+    const daysTotal = Math.floor(dist / (1000 * 60 * 60 * 24));
+    const days = daysTotal % 30;
+    const months = Math.floor(daysTotal / 30) % 12;
+    const years = Math.floor(daysTotal / 365);
+    el.textContent = `${years}y ${months}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+}
+updateTimer("timer2027", "2027-01-01");
+updateTimer("timer2047", "2047-01-01");
+</script>
+
+</body>
+</html>
